@@ -32,7 +32,7 @@ Create a Flask extension to bind Flask and InertiaJS.
 
 import os
 from http import HTTPStatus
-from typing import Any, Optional, Union
+from typing import Any, Optional
 
 from flask import Blueprint, Flask, Response, current_app, request
 from flask.app import App
@@ -45,19 +45,16 @@ from werkzeug.exceptions import BadRequest
 from flask_inertia.version import get_asset_version
 from flask_inertia.views import render_inertia
 
-# TODO: maybe `Scaffold` instead?
-FlaskOrBlueprint = Union[Flask, Blueprint]
-
 
 class Inertia:
     """Inertia Plugin for Flask."""
 
-    def __init__(self, app: Optional[FlaskOrBlueprint] = None):
+    def __init__(self, app: Optional[Flask | Blueprint] = None):
         self.app = None
         if app is not None:
             self.init_app(app)
 
-    def init_app(self, app: FlaskOrBlueprint):
+    def init_app(self, app: Flask | Blueprint):
         """Init as an app extension
 
         * Register before_request hook
