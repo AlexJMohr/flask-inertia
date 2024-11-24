@@ -77,10 +77,6 @@ class Inertia:
         app.after_request(self.update_redirect)
 
     def register_blueprint(self, state: BlueprintSetupState):
-        # TODO: support multiple instances of Inertia, each on different
-        #  blueprints? Possibly by using blueprint's name as part of the
-        #  key in app.extensions. e.g:
-        #  app.extensions[f"inertia.{state.blueprint.name}"] = self
         self._init_extension(state.app)
 
     def _init_extension(self, app: App):
