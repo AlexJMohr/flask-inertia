@@ -35,8 +35,8 @@ from http import HTTPStatus
 from typing import Any, Optional, Union
 
 from flask import Blueprint, Flask, Response, current_app, request
-from flask.sansio.app import App
-from flask.sansio.blueprints import BlueprintSetupState
+from flask.app import App
+from flask.blueprints import BlueprintSetupState
 from jinja2 import Template
 from jsmin import jsmin
 from markupsafe import Markup
